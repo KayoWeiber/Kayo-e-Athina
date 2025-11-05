@@ -31,6 +31,21 @@ function Home() {
   // Embla API para reInit após carregar imagem
   const [embla, setEmbla] = useState<CarouselApi | null>(null);
 
+  // Autoplay: troca a imagem a cada 10s indo para o próximo índice
+  useEffect(() => {
+    if (!embla) return;
+
+    let index = embla.selectedScrollSnap();
+    const run = () => {
+      const total = embla.scrollSnapList().length;
+      index = (index + 1) % total;
+      embla.scrollTo(index);
+    };
+
+    const id = window.setInterval(run, 10000);
+    return () => window.clearInterval(id);
+  }, [embla]);
+
   // Fechar modal com ESC
   useEffect(() => {
     if (!mapOpen) return;
@@ -129,7 +144,7 @@ function Home() {
                     setApi={setEmbla}
                   >
                     <CarouselContent className="min-w-0">
-                      {["/casal-principal.png", "/casal-principal.png", "/casal-principal.png"].map(
+                      {["/casal-principal.png", "/2-casal-principal.png", "/3-casal-principal.png"].map(
                         (src, idx) => (
                           <CarouselItem key={idx} className="basis-full">
                             <div className="relative w-full h-[380px] sm:h-[380px] md:h-[560px] min-w-0">
