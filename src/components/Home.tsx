@@ -144,7 +144,7 @@ function Home() {
                     setApi={setEmbla}
                   >
                     <CarouselContent className="min-w-0">
-                      {["/casal-principal.png", "/2-casal-principal.png", "/3-casal-principal.png"].map(
+                      {["casal-principal.png", "2-casal-principal.png", "3-casal-principal.png"].map(
                         (src, idx) => (
                           <CarouselItem key={idx} className="basis-full">
                             <div className="relative w-full h-[380px] sm:h-[380px] md:h-[560px] min-w-0">
