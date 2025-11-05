@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t ka-border-detalhe bg-background/50">
-      <div className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+    <footer className="mt-12 border-t ka-border-detalhe bg-background/50 safe-pb">
+      <div className="ka-container py-8 md:py-10">
         {/* Logo + mensagem */}
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link to="/" className="flex items-center gap-2 select-none" aria-label="Kayo & Áthina">

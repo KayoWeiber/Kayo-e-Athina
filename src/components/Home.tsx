@@ -53,7 +53,7 @@ function Home() {
   return (
     <main>
       {/* Início (Hero) */}
-      <section id="inicio" className="mx-auto max-w-6xl px-4 md:px-6 py-6 md:py-10">
+  <section id="inicio" className="ka-container py-6 md:py-10 scroll-mt-16 md:scroll-mt-24">
         <div className="relative overflow-hidden rounded-3xl ring-1 ka-border-detalhe">
           {/* fundo suave com gradiente lilás dentro do "quadrado" */}
           <div className="absolute inset-0 bg-linear-to-b from-[#FAF8FF] to-[#EDE9FE]" aria-hidden />
@@ -126,9 +126,9 @@ function Home() {
       {/* Local do casamento */}
       <section
         id="local"
-        className="mx-auto max-w-6xl px-4 md:px-6 py-10 md:py-14 border-t"
+        className="ka-container py-10 md:py-14 border-t scroll-mt-16 md:scroll-mt-24"
       >
-        <div className="relative overflow-hidden rounded-3xl ring-1 ka-border-detalhe p-6 md:p-8 ka-bg-gelobranco">
+  <div className="relative overflow-hidden rounded-3xl ring-1 ka-border-detalhe p-6 md:p-8 ka-bg-gelo">
           <div className="flex flex-col gap-4 md:gap-5 text-center items-center">
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm ring-1 ka-border-detalhe bg-white/60">

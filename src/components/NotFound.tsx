@@ -17,7 +17,7 @@ const NotFound: React.FC = () => {
   }, [seconds, navigate])
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
+  <main className="ka-container py-12 md:py-16">
       <Reveal>
         <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl ka-text-roxo-escuro">404</h1>
       </Reveal>
