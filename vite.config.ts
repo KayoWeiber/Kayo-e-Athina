@@ -5,6 +5,9 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Important for GitHub Pages project site deployment
+  // Ensures assets and router work when hosted at /Kayo-e-Athina/
+  base: "/Kayo-e-Athina/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
