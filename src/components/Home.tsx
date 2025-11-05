@@ -95,13 +95,15 @@ function Home() {
             onPhaseChange={(phase) => setVersePhase(phase)}
             className="font-body text-sm md:text-base ka-text-roxo-escuro"
           />
-          <div
-            className={cn(
-              "mt-1 text-xs text-neutral-600 transition-all duration-300 ease-out",
-              verseVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
-            )}
-          >
-            Provérbios 16:3
+          <div className="mt-1 relative h-[18px] overflow-hidden">
+            <span
+              className={cn(
+                "absolute inset-0 flex items-center justify-center whitespace-nowrap text-xs leading-none text-neutral-600 transition-opacity duration-300 ease-out",
+                verseVisible ? "opacity-100" : "opacity-0"
+              )}
+            >
+              Provérbios 16:3
+            </span>
           </div>
         </div>
       </section>

@@ -2,9 +2,9 @@ name: CI and Deploy (GitHub Pages)
 
 on:
   push:
-    branches: [ "main" ]     # deploy após merge
+    branches: ["main"]         # deploy após merge
   pull_request:
-    branches: [ "main" ]     # valida todo PR contra main
+    branches: ["main"]         # valida todo PR contra main
   workflow_dispatch:
 
 permissions:
@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      # se for SPA (Vite/React Router), manter o 404 para evitar refresh 404
+      # SPA: evita 404 no refresh
       - name: Add SPA 404
         run: |
           if [ -f dist/index.html ]; then
@@ -49,7 +49,7 @@ jobs:
           path: ./dist
 
   deploy:
-    name: Deploy to Pages
+    name: Deploy to GitHub Pages
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
@@ -57,6 +57,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
