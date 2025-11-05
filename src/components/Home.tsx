@@ -80,6 +80,20 @@ function Home() {
               </p>
             </Reveal>
 
+            {/* Foto do casal (hero) */}
+            <Reveal delay={180}>
+              <figure className="mt-6 w-full max-w-md md:max-w-lg overflow-hidden rounded-3xl border-4 ka-border-roxo-escuro bg-white/60 shadow-sm">
+                <div className="ka-float-slow">
+                  <img
+                    src="/casal-principal.png"
+                    alt="Kayo e Áthina"
+                    className="block w-full h-auto object-cover scale-105 will-change-transform"
+                    decoding="async"
+                  />
+                </div>
+              </figure>
+            </Reveal>
+
             {/* Contagem regressiva */}
             <div className="mt-8 inline-grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4" aria-live="polite">
               <Reveal>
@@ -90,19 +104,19 @@ function Home() {
               </Reveal>
               <Reveal delay={60}>
                 <div className="rounded-xl px-4 py-5 text-center shadow-sm ring-1 ka-bg-gelo ka-border-detalhe transition-transform duration-300 hover:scale-[1.02]">
-                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{String(timeLeft.hours).padStart(2, "0")}</div>
+                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{timeLeft.hours.toString().padStart(2, '0')}</div>
                   <div className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-600">Horas</div>
                 </div>
               </Reveal>
               <Reveal delay={120}>
                 <div className="rounded-xl px-4 py-5 text-center shadow-sm ring-1 ka-bg-gelo ka-border-detalhe transition-transform duration-300 hover:scale-[1.02]">
-                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{String(timeLeft.minutes).padStart(2, "0")}</div>
+                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{timeLeft.minutes.toString().padStart(2, '0')}</div>
                   <div className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-600">Minutos</div>
                 </div>
               </Reveal>
               <Reveal delay={180}>
                 <div className="rounded-xl px-4 py-5 text-center shadow-sm ring-1 ka-bg-gelo ka-border-detalhe transition-transform duration-300 hover:scale-[1.02]">
-                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{String(timeLeft.seconds).padStart(2, "0")}</div>
+                  <div className="text-3xl md:text-4xl font-extrabold ka-text-roxo-escuro">{timeLeft.seconds.toString().padStart(2, '0')}</div>
                   <div className="mt-1 text-xs font-medium uppercase tracking-wide text-neutral-600">Segundos</div>
                 </div>
               </Reveal>

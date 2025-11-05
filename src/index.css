@@ -145,6 +145,7 @@
   .ka-bg-gelo          { background-color: var(--ka-branco-gelo); }
   .ka-bg-detalhe       { background-color: var(--ka-detalhes-suaves); }
   .ka-border-detalhe   { border-color: var(--ka-detalhes-suaves); }
+  .ka-border-roxo-escuro { border-color: var(--ka-roxo-escuro); }
   .safe-pb { padding-bottom: env(safe-area-inset-bottom); }
   .safe-pt { padding-top: env(safe-area-inset-top); }
 
@@ -187,4 +188,18 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ka-hero-animated-bg { animation: none; }
+}
+
+/* Animação de flutuar sutil */
+@keyframes kaFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.ka-float-slow { animation: kaFloat 10s ease-in-out infinite; will-change: transform; }
+.ka-float-medium { animation: kaFloat 6s ease-in-out infinite; will-change: transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ka-float-slow, .ka-float-medium { animation: none; }
 }
