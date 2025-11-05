@@ -131,7 +131,7 @@ function Home() {
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-3 text-base md:text-lg text-neutral-600">
-                Casamento • 14/11/2026 às 16 horas
+                Cerimônia • 14/11/2026 às 16 horas
               </p>
             </Reveal>
 
@@ -218,7 +218,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Local do casamento */}
+      {/* Local da cerimônia */}
       <section
         id="local"
         className="ka-container py-10 md:py-14 border-t scroll-mt-16 md:scroll-mt-24"
@@ -228,7 +228,7 @@ function Home() {
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm ring-1 ka-border-detalhe bg-white/60">
                 <MapPin className="h-4 w-4 ka-text-roxo-escuro" />
-                <span className="font-medium ka-text-roxo-escuro">Local do casamento</span>
+                <span className="font-medium ka-text-roxo-escuro">Local da cerimônia</span>
               </div>
             </Reveal>
 
@@ -283,7 +283,7 @@ function Home() {
               className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
               role="dialog"
               aria-modal="true"
-              aria-label="Mapa do local do casamento"
+              aria-label="Mapa do local da cerimônia"
               onClick={(e) => {
                 if (e.target === e.currentTarget) setMapOpen(false);
               }}
