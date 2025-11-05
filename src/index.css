@@ -203,3 +203,40 @@
 @media (prefers-reduced-motion: reduce) {
   .ka-float-slow, .ka-float-medium { animation: none; }
 }
+
+/* Caret blink para o Typewriter */
+@keyframes kaCaretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.ka-caret { display:inline-block; width: 0.6ch; border-right: 2px solid var(--ka-roxo-escuro); animation: kaCaretBlink 1s step-end infinite; transform: translateY(0.1em); }
+
+/* Shine once on finish */
+@keyframes kaShine {
+  0% { background-position: -150% 0; }
+  100% { background-position: 150% 0; }
+}
+.ka-shine-once {
+  background-image: linear-gradient(90deg, currentColor 0%, color-mix(in oklab, currentColor 85%, white) 50%, currentColor 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: kaShine 900ms ease-out 1;
+}
+
+/* Underline grow after finish */
+@keyframes kaUnderlineGrow {
+  from { transform: scaleX(0); opacity: 0.6; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+.ka-underline-grow {
+  display: block;
+  height: 2px;
+  background: var(--ka-roxo-escuro);
+  margin-top: 6px;
+  border-radius: 9999px;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: kaUnderlineGrow 600ms ease-out forwards;
+}

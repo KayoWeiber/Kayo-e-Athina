@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Heart, MapPin, ExternalLink, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import Typewriter from "./Typewriter";
+import { cn } from "../lib/utils";
 
 function Home() {
   // Target date: 14/11/2026 às 16:00 (horário local)
@@ -15,6 +17,8 @@ function Home() {
     completed: false,
   });
   const [mapOpen, setMapOpen] = useState(false);
+  const [versePhase, setVersePhase] = useState<"typing"|"holdText"|"underline"|"restart">("typing");
+  const verseVisible = versePhase === "holdText" || versePhase === "underline";
 
   // Fechar modal com ESC
   useEffect(() => {
@@ -52,6 +56,32 @@ function Home() {
 
   return (
     <main>
+      {/* Verso de abertura */}
+      <section className="ka-container pt-4 md:pt-6">
+        <div className="relative overflow-hidden rounded-2xl ring-1 ka-border-detalhe bg-white/70 px-4 py-3 md:px-6 md:py-4 text-center">
+          {/* Sincroniza fases do typewriter com a citação */}
+          <Typewriter
+            text="“Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos”"
+            speed={32}
+            startDelay={300}
+            loop
+            delayAfterEndMs={5000}
+            underlineHoldMs={3000}
+            onPhaseChange={(phase) => setVersePhase(phase)}
+            className="font-body text-sm md:text-base ka-text-roxo-escuro"
+          />
+          {/* Citação sincronizada: aparece quando o texto está completo e durante o sublinhado */}
+          <div
+            className={cn(
+              "mt-1 text-xs text-neutral-600 transition-all duration-300 ease-out",
+              verseVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"
+            )}
+          >
+            Provérbios 16:3
+          </div>
+        </div>
+      </section>
+
       {/* Início (Hero) */}
   <section id="inicio" className="ka-container py-6 md:py-10 scroll-mt-16 md:scroll-mt-24">
         <div className="relative overflow-hidden rounded-3xl ring-1 ka-border-detalhe">
