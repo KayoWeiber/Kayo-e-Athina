@@ -1,10 +1,10 @@
-import { Heart, Mail, Phone } from "lucide-react";
+import { Heart, Mail, Phone, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t ka-border-detalhe bg-background/50">
-      <div className="mx-auto max-w-6xl px-4 py-8 md:px-6 md:py-10">
+    <footer className="mt-12 border-t ka-border-detalhe bg-background/50 safe-pb">
+      <div className="ka-container py-8 md:py-10">
         {/* Logo + mensagem */}
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link to="/" className="flex items-center gap-2 select-none" aria-label="Kayo & Áthina">
@@ -48,6 +48,37 @@ export default function Footer() {
               </a>
             </div>
           </address>
+        </div>
+
+        {/* Acompanhe os preparativos */}
+        <div className="mt-8 grid gap-3 text-sm md:mt-8">
+          <h2 className="font-title text-lg ka-text-roxo-escuro">Acompanhe os preparativos</h2>
+          <p className="font-body text-neutral-700">Siga nossos perfis e acompanhe cada etapa rumo ao grande dia.</p>
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Destaque: Noiva */}
+            <a
+              href="https://www.instagram.com/athina_carmo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 ring-1 ka-border-detalhe ka-logo-badge hover:opacity-90"
+              aria-label="Instagram da noiva: @athina_carmo"
+            >
+              <Instagram size={16} aria-hidden />
+              <span className="font-medium ka-text-roxo-escuro">@athina_carmo</span>
+              <span className="ml-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide ka-text-roxo-escuro bg-white/60 ring-1 ka-border-detalhe">Noiva</span>
+            </a>
+            {/* Noivo */}
+            <a
+              href="https://www.instagram.com/kayo_weiber/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 ring-1 ka-border-detalhe bg-white/70 hover:bg-white transition"
+              aria-label="Instagram do noivo: @kayo_weiber"
+            >
+              <Instagram size={16} aria-hidden />
+              <span className="font-medium ka-text-roxo-escuro">@kayo_weiber</span>
+            </a>
+          </div>
         </div>
 
         {/* Copyright */}

@@ -1,0 +1,23 @@
+{
+  "name": "Kayo & Áthina",
+  "short_name": "K&A",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF8FF",
+  "theme_color": "#FAF8FF",
+  "icons": [
+    {
+      "src": "/icon-250.png",
+      "sizes": "250x250",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-520.png",
+      "sizes": "520x520",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
