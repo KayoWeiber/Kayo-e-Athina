@@ -1,2 +1,9 @@
-# Kayo-e-Athina
+# Kayo & Áthina — Website
 
+Status: Em construção 🚧
+
+Este projeto está em desenvolvimento ativo. Funcionalidades, layout e conteúdo podem mudar com frequência até a primeira versão estável.
+
+Tecnologias principais: React, Vite, TypeScript, React Router e Tailwind CSS.
+
+Obrigado por acompanhar! 💜
