@@ -92,6 +92,7 @@ function Home() {
             loop
             delayAfterEndMs={5000}
             underlineHoldMs={3000}
+            underline={false}
             onPhaseChange={(phase) => setVersePhase(phase)}
             className="font-body text-sm md:text-base ka-text-roxo-escuro"
           />
