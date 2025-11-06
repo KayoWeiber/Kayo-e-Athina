@@ -178,6 +178,9 @@ export default function Header() {
             <li className="border-t ka-border-detalhe first:border-t-0">
               <Link to="/galeria" className="block py-2.5 font-body text-base font-medium ka-text-roxo-escuro">Galeria</Link>
             </li>
+              <li className="border-t ka-border-detalhe first:border-t-0">
+              <Link to="/lista-de-presentes" className="block py-2.5 font-body text-base font-medium ka-text-roxo-escuro">Lista de Presentes</Link>
+            </li>
           </ul>
         </nav>
       </div>
