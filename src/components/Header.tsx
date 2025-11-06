@@ -134,6 +134,9 @@ export default function Header() {
           <Link to="/galeria" className="font-body text-sm md:text-base font-medium transition-colors hover:opacity-90 ka-text-roxo-escuro">
             Galeria
           </Link>
+          <Link to="/lista-de-presentes" className="font-body text-sm md:text-base font-medium transition-colors hover:opacity-90 ka-text-roxo-escuro">
+            Lista de Presentes
+          </Link>
         </nav>
 
         {/* Botão hambúrguer (mobile) */}

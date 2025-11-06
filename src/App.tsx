@@ -6,6 +6,7 @@ import Historia from './components/Historia';
 import Galeria from './components/Galeria';
 import NotFound from './components/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import Lista from './components/Lista';
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/nossa-historia" element={<Historia />} />
           <Route path="/galeria" element={<Galeria />} />
+          <Route path="/lista-de-presentes" element={<Lista />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
