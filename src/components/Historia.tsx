@@ -8,18 +8,21 @@ export default function Historia() {
       title: "Pedido de namoro",
       desc: "O início oficial de uma linda história a dois.",
       Icon: Heart,
+      img: "nossa-historia/casal-2020.png",
     },
     {
       year: "2023",
       title: "Primeira viagem juntos",
       desc: "Aventura, risadas e memórias para guardar para sempre.",
       Icon: Plane,
+      img: "nossa-historia/casal-2023.png",
     },
     {
       year: "2024",
-      title: "Pedido de noiva",
+      title: "Pedido de noivado",
       desc: "Com emoção e alegria, um passo a mais rumo ao futuro.",
       Icon: Diamond,
+      img: "nossa-historia/casal-2024.png",
     },
     {
       year: "Novembro de 2026",
@@ -100,7 +103,7 @@ export default function Historia() {
           />
 
           <ol className="space-y-10 md:space-y-16">
-            {timeline.map(({ year, title, desc, Icon }, idx) => {
+            {timeline.map(({ year, title, desc, Icon, img }, idx) => {
               const left = idx % 2 === 0;
               return (
                 <li key={idx} className="relative">
@@ -110,6 +113,13 @@ export default function Historia() {
                     <div className={left ? "md:w-[calc(50%-44px)] pr-8" : "md:w-[calc(50%-44px)]"}>
                       {left && (
                         <div className="h-full rounded-2xl bg-white p-5 shadow-sm ring-1 ka-border-detalhe flex flex-col justify-center">
+                          {img && (
+                            <div className="mb-3">
+                              <div className="h-16 w-16 overflow-hidden rounded-full border-2 ka-border-roxo-escuro bg-white">
+                                <img src={img} alt="Foto do casal" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                              </div>
+                            </div>
+                          )}
                           <div className="text-xs font-medium uppercase tracking-wide text-neutral-500">{year}</div>
                           <div className="mt-1.5 text-lg md:text-xl font-semibold ka-text-roxo-escuro">{title}</div>
                           <p className="mt-1.5 text-sm text-neutral-600">{desc}</p>
@@ -126,6 +136,13 @@ export default function Historia() {
                     <div className={!left ? "md:w-[calc(50%-44px)] pl-8" : "md:w-[calc(50%-44px)]"}>
                       {!left && (
                         <div className="h-full rounded-2xl bg-white p-5 shadow-sm ring-1 ka-border-detalhe flex flex-col justify-center">
+                          {img && (
+                            <div className="mb-3">
+                              <div className="h-16 w-16 overflow-hidden rounded-full border-2 ka-border-roxo-escuro bg-white">
+                                <img src={img} alt="Foto do casal" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                              </div>
+                            </div>
+                          )}
                           <div className="text-xs font-medium uppercase tracking-wide text-neutral-500">{year}</div>
                           <div className="mt-1.5 text-lg md:text-xl font-semibold ka-text-roxo-escuro">{title}</div>
                           <p className="mt-1.5 text-sm text-neutral-600">{desc}</p>
@@ -141,6 +158,13 @@ export default function Historia() {
                       </div>
                     </div>
                     <div className="mt-4 rounded-2xl bg-white p-4 shadow-sm ring-1 ka-border-detalhe">
+                      {img && (
+                        <div className="mb-3">
+                          <div className="h-14 w-14 overflow-hidden rounded-full border-2 ka-border-roxo-escuro bg-white">
+                            <img src={img} alt="Foto do casal" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+                          </div>
+                        </div>
+                      )}
                       <div className="text-xs font-medium uppercase tracking-wide text-neutral-500">{year}</div>
                       <div className="mt-1.5 text-lg font-semibold ka-text-roxo-escuro">{title}</div>
                       <p className="mt-1.5 text-sm text-neutral-600">{desc}</p>
