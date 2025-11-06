@@ -35,7 +35,32 @@ const PRESENTS: Present[] = [
     link: "https://www.amazon.com.br/dp/B0BMW95J7F/?coliid=IQBAWXH9HBKJY&colid=1WPB0V6FADKGO&th=1",
     imageUrl:"https://m.media-amazon.com/images/I/51XBl+73puL._AC_SX569_.jpg"
     // sem imageUrl: usa fallback visual
-  },
+  },{
+    id: "p5",
+    name: "Liquidificador 1400 Full Oster Preto 3,2L - 127V",
+    link: "https://www.amazon.com.br/dp/B08DFCF9HW/?coliid=I2DAXW29ALEDDN&colid=1WPB0V6FADKGO&th=1",
+    imageUrl:"https://m.media-amazon.com/images/I/51N3Xi4JJML._AC_SX569_.jpg"
+  },{
+    id: "p6",
+    name: "MINI GRILL OSTER 2 em 1, 1000W, 110V, OGRL230",
+    link: "https://www.amazon.com.br/dp/B0BSP1XKYL/?coliid=I161F6LEJU2KRK&colid=1WPB0V6FADKGO&th=1",
+    imageUrl:"https://m.media-amazon.com/images/I/413F1Icml2L._AC_SX569_.jpg"
+  },{
+    id: "p7",
+    name: "Panela Elétrica Electrolux vapor arroz capacidade 2L 6 Xícaras 2 em 1 timer panela removivel antiaderente tampa com visor transparente ERC10 inox 127v por Rita Lobo",
+    link: "https://www.amazon.com.br/dp/B0CC77KLF9/?coliid=I26F7BEI0N8O0E&colid=1WPB0V6FADKGO&th=1",
+    imageUrl:"https://m.media-amazon.com/images/I/71L6I3GZ5mL._AC_SX569_.jpg"
+  },{
+    id: "p8",
+    name: "Espremedor de frutas laranjas limão citrus electrolux efficient 800Ml (ECP10) 127V",
+    link: "https://www.amazon.com.br/dp/B0BTMSKQWL/?coliid=I1OFDN837DP160&colid=1WPB0V6FADKGO&th=1",
+    imageUrl:"https://m.media-amazon.com/images/I/51i2cjxyi5L._AC_SX569_.jpg"
+  },{
+    id: "p9",
+    name: "Conjunto de Bowls Tigelas de Inox com Tampa Plástica Electrolux",
+    link: "https://www.amazon.com.br/dp/B0C2ZNDWK6/?coliid=I1I2BJ819CZDU&colid=1WPB0V6FADKGO&psc=1",
+    imageUrl:"https://m.media-amazon.com/images/I/51hUmO15FhL._AC_SX569_.jpg"
+  }
 ];
 
 // Chave PIX aleatória (tipo chave aleatória)
