@@ -10,6 +10,7 @@ type TypewriterProps = {
   loop?: boolean;
   delayAfterEndMs?: number; // wait after finishing typing before showing underline
   underlineHoldMs?: number; // how long the underline stays before restarting
+  underline?: boolean; // show the underline between loops
   onPhaseChange?: (phase: "typing" | "holdText" | "underline" | "restart") => void;
 };
 
@@ -22,6 +23,7 @@ export default function Typewriter({
   loop = false,
   delayAfterEndMs = 5000,
   underlineHoldMs = 3000,
+  underline = true,
   onPhaseChange,
 }: TypewriterProps) {
   const [displayed, setDisplayed] = useState("");
@@ -93,15 +95,20 @@ export default function Typewriter({
   // Loop sequence after finishing typing
   useEffect(() => {
     if (!done || !loop || reduceMotion) return;
-    // Wait after end, then show underline for a period, then restart typing
+    // Wait after end, then optionally show underline, then restart typing
     postDelayRef.current = window.setTimeout(() => {
-      setShowUnderline(true);
-      emit("underline");
-      underlineHoldRef.current = window.setTimeout(() => {
-        setShowUnderline(false);
+      if (underline) {
+        setShowUnderline(true);
+        emit("underline");
+        underlineHoldRef.current = window.setTimeout(() => {
+          setShowUnderline(false);
+          emit("restart");
+          startTyping();
+        }, underlineHoldMs) as unknown as number;
+      } else {
         emit("restart");
         startTyping();
-      }, underlineHoldMs) as unknown as number;
+      }
     }, delayAfterEndMs) as unknown as number;
 
     return () => {
@@ -109,13 +116,13 @@ export default function Typewriter({
       if (underlineHoldRef.current) window.clearTimeout(underlineHoldRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done, loop, delayAfterEndMs, underlineHoldMs, reduceMotion]);
+  }, [done, loop, delayAfterEndMs, underlineHoldMs, reduceMotion, underline]);
 
   return (
     <span className={cn("inline-block", className)} aria-live="polite">
       {displayed}
       {cursor && !reduceMotion && !done && <span className="ka-caret" aria-hidden>{"\u00A0"}</span>}
-      {!reduceMotion && showUnderline && <span className="ka-underline-grow" aria-hidden></span>}
+      {!reduceMotion && underline && showUnderline && <span className="ka-underline-grow" aria-hidden></span>}
     </span>
   );
 }
