@@ -35,7 +35,15 @@ export default function Header() {
       if (!target) return;
       const clickedInsideMenu = !!menuEl && menuEl.contains(target);
       const clickedOnButton = !!btnEl && btnEl.contains(target);
-      if (!clickedInsideMenu && !clickedOnButton) setOpen(false);
+      // Introduz um pequeno atraso para evitar que eventos sintéticos rápidos (ex: reflows da contagem) fechem imediatamente
+      if (!clickedInsideMenu && !clickedOnButton) {
+        window.setTimeout(() => {
+          setOpen((prev) => {
+            // Revalida se ainda está aberto antes de fechar
+            return prev ? false : prev;
+          });
+        }, 50);
+      }
     };
     document.addEventListener("mousedown", onPointerDown);
     document.addEventListener("touchstart", onPointerDown, { passive: true });
@@ -48,9 +56,13 @@ export default function Header() {
   // Fechar ao rolar a página
   useEffect(() => {
     if (!open) return;
-    const onScroll = () => setOpen(false);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    // Quando o menu estiver aberto, não fechamos por scroll para evitar interferência de reflows/contagens.
+    // Além disso, travamos o scroll da página para impedir mudanças de viewport no mobile.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
   }, [open]);
 
   // Ocultar header ao descer e mostrar ao subir
