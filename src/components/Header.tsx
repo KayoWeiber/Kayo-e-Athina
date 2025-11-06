@@ -93,7 +93,7 @@ export default function Header() {
     )}>
       <div className="mx-auto flex max-w-6xl items-center justify-between pl-4 pr-2 py-2 md:pl-6 md:pr-2">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 select-none">
+        <Link to="//" className="flex items-center gap-2 select-none">
           <div
             className="flex items-center gap-2 rounded-md px-5 py-1.5 ka-logo-badge"
             aria-label="Kayo & Áthina"
@@ -113,7 +113,7 @@ export default function Header() {
 
         {/* Navegação desktop */}
         <nav className="hidden gap-5 md:flex" aria-label="Seções principais">
-          <Link to="/" className="font-body text-sm md:text-base font-medium transition-colors hover:opacity-90 ka-text-roxo-escuro">
+          <Link to="//" className="font-body text-sm md:text-base font-medium transition-colors hover:opacity-90 ka-text-roxo-escuro">
             Início
           </Link>
           <Link to="/nossa-historia" className="font-body text-sm md:text-base font-medium transition-colors hover:opacity-90 ka-text-roxo-escuro">
