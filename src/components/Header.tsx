@@ -155,7 +155,7 @@ export default function Header() {
         <nav className="mx-auto max-w-6xl px-4 py-3 md:px-6" aria-label="Seções principais (mobile)">
           <ul className="flex flex-col">
             <li className="border-t ka-border-detalhe first:border-t-0">
-              <Link to="/" className="block py-2.5 font-body text-base font-medium ka-text-roxo-escuro">Início</Link>
+              <Link to="//" className="block py-2.5 font-body text-base font-medium ka-text-roxo-escuro">Início</Link>
             </li>
             <li className="border-t ka-border-detalhe first:border-t-0">
               <Link to="/nossa-historia" className="block py-2.5 font-body text-base font-medium ka-text-roxo-escuro">Nossa História</Link>
