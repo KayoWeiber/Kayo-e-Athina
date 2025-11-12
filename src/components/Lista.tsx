@@ -9,6 +9,12 @@ type Present = {
   imageUrl?: string;
 };
 
+type MLItem = {
+  id: string;
+  name: string;
+  link: string;
+};
+
 const PRESENTS: Present[] = [
   // Exemplos — substitua pelos seus itens reais
   {
@@ -146,9 +152,77 @@ function PresentCard({ present }: { present: Present }) {
   );
 }
 
+function MLLinkCard({ item, copied, onCopy }: { item: MLItem; copied: boolean; onCopy: () => void }) {
+  const domain = useMemo(() => getDomain(item.link), [item.link]);
+  return (
+    <div className="group overflow-hidden rounded-2xl ring-1 ka-border-detalhe bg-white shadow-sm transition-transform duration-300 hover:scale-[1.01] h-44 md:h-48 flex flex-col">
+      <div className="p-4 flex-1 flex flex-col">
+        <div className="flex items-center gap-2">
+          <img
+            src={`https://www.google.com/s2/favicons?domain=${domain}&sz=64`}
+            alt=""
+            width={16}
+            height={16}
+            className="h-4 w-4 rounded"
+            loading="lazy"
+          />
+          <span className="text-xs text-neutral-500">{domain}</span>
+        </div>
+        <h3 className="mt-1.5 text-base md:text-lg font-semibold ka-text-roxo-escuro truncate" title={item.name}>
+          {item.name}
+        </h3>
+        <div className="mt-auto pt-3 flex items-center gap-2">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 ring-1 ka-border-detalhe bg-white hover:bg-white/80 text-sm"
+          >
+            Abrir lista <ExternalLink className="h-4 w-4" />
+          </a>
+          <button
+            type="button"
+            onClick={onCopy}
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 ka-btn-primary text-sm"
+          >
+            {copied ? (
+              <>
+                Link copiado <Check className="h-4 w-4" />
+              </>
+            ) : (
+              <>
+                Copiar link <Copy className="h-4 w-4" />
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Lista() {
   const [pixOpen, setPixOpen] = useState(false);
   const [pixCopied, setPixCopied] = useState(false);
+  const [mlCopiedId, setMlCopiedId] = useState<string | null>(null);
+
+  const ML_LISTS: MLItem[] = [
+    {
+      id: "ml1",
+      name: "Lista Cozinha",
+      link: "https://www.mercadolivre.com.br/presentes/cozinha-5rx5g",
+    },
+    {
+      id: "ml2",
+      name: "Lista Eletrodomésticos",
+      link: "https://www.mercadolivre.com.br/presentes/eletrodomesticos-inhs3",
+    },
+    {
+      id: "ml3",
+      name: "Lista Sala de Estar",
+      link: "https://www.mercadolivre.com.br/presentes/sala-de-estar-xcl9j",
+    },
+  ];
 
   // Fechar modal Pix com ESC
   useEffect(() => {
@@ -176,6 +250,18 @@ export default function Lista() {
     }
   };
 
+  // Sem QR Code: apenas links para as listas do Mercado Livre
+
+  const copyMLLink = async (id: string, link: string) => {
+    try {
+      await navigator.clipboard.writeText(link);
+      setMlCopiedId(id);
+      setTimeout(() => setMlCopiedId(null), 2000);
+    } catch {
+      // ignorar
+    }
+  };
+
   return (
     <main className="ka-container py-12 md:py-16">
       <Reveal>
@@ -196,6 +282,32 @@ export default function Lista() {
           </Reveal>
         ))}
       </div>
+
+  {/* Listas do Mercado Livre (grid de 3 links) */}
+      <div className="mt-14">
+        <Reveal>
+          <h2 className="text-xl md:text-2xl font-bold ka-text-roxo-escuro text-center">
+            Listas no Mercado Livre
+          </h2>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="mt-3 text-neutral-700 text-center max-w-prose mx-auto">
+            Acesse as nossas listas no Mercado Livre abaixo.
+          </p>
+        </Reveal>
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
+          {ML_LISTS.map((item) => (
+            <Reveal key={item.id}>
+              <MLLinkCard
+                item={item}
+                copied={mlCopiedId === item.id}
+                onCopy={() => copyMLLink(item.id, item.link)}
+              />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
       {/* CTA Pix destacada */}
       <div className="mt-12">
         <Reveal>
